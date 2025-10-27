@@ -1,7 +1,10 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private int health =100;
     private float moveSpeed = 5.0f;
     private float jumpForce = 10.0f;
     private float groundCheckRadius = 0.2f;
@@ -9,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public int extraJumpsCount =1;
     private int extraJumpsLeft;
 
+    private SpriteRenderer spriteRenderer;
     public Transform groundCheck;
     public LayerMask groundLayer;
     private Rigidbody2D rbPlayer;
@@ -18,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         rbPlayer = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         // Initialize extra jumps
         extraJumpsLeft = extraJumpsCount;
@@ -41,15 +46,13 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrounded || extraJumpsLeft > 0)
             {
-                Debug.Log($"{extraJumpsLeft}");
+                // Apply jump force
                 rbPlayer.linearVelocity = new Vector2(rbPlayer.linearVelocity.x, jumpForce);
-                Debug.Log($"{extraJumpsLeft}");
+                // Decrease extra jumps left if not grounded
                 extraJumpsLeft--;
-                Debug.Log($"{extraJumpsLeft}");
+               
             }
         }
-        
-            
 
         // Update animations
         SetAnimations(horizontalInput);
@@ -90,5 +93,41 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag=="Damage")
+        {
+            // Reduce health and apply knockback
+            health -= 25;
+            rbPlayer.linearVelocity = new Vector2(rbPlayer.linearVelocity.x, jumpForce);
+
+            // Start damage blink effect
+            StartCoroutine(BlinkDamage());
+
+            // Check for death
+            if (health <= 0)
+            {
+                Die();
+            }
+        }
+    }
+
+    IEnumerator BlinkDamage() {
+        // Blink red to indicate damage
+        spriteRenderer.color = Color.red;
+
+        // Wait for a short duration
+        yield return new WaitForSeconds(0.2f);
+
+        // Revert to original color
+        spriteRenderer.color = Color.white;
+    }
+
+    private void Die()
+    {
+        // Reload the current scene on death
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GamePlay");
     }
 }
