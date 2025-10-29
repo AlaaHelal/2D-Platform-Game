@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag=="Damage")
+        if (collision.gameObject.tag=="Damage" || collision.gameObject.tag == "Enemy")
         {
             // Reduce health and apply knockback
             health -= 25;

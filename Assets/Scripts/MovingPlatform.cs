@@ -27,7 +27,8 @@ public class MovingPlatform : MonoBehaviour
             }
         }
         // Move the platform towards the current target point
-        transform.position = Vector2.MoveTowards(transform.position, points[point].position, speed * Time.deltaTime);
+        transform.position = 
+            Vector2.MoveTowards(transform.position, points[point].position, speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
