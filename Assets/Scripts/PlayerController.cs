@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     private Rigidbody2D rbPlayer;
     private Animator animator;
+    public Image healthBar;
 
     void Start()
     {
@@ -56,6 +58,8 @@ public class PlayerController : MonoBehaviour
 
         // Update animations
         SetAnimations(horizontalInput);
+
+        healthBar.fillAmount = health / 100f;
     }
 
 
