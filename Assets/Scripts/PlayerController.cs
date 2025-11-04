@@ -94,35 +94,35 @@ public class PlayerController : MonoBehaviour
     public void SetAnimations(float moveInput)
     {
 
-        animator.SetFloat("speed", Math.Abs(moveInput));
-        animator.SetBool("isGrounded", isGrounded);
-        animator.SetFloat("yVelocity", rbPlayer.linearVelocity.y);
-        //if (isGrounded)
-        //{
-        //    if(moveInput == 0)
-        //    {
-        //        // Set idle animation
-        //        animator.Play("Player_Idle");
-        //    }
-        //    else
-        //    {
-        //        // Set running animation
-        //        animator.Play("Player_Run");
-        //    }
-        //}
-        //else
-        //{
-        //    if(rbPlayer.linearVelocityY > 0)
-        //        {
-        //        // Set jumping animation
-        //        animator.Play("Player_Jump");
-        //    }
-        //    else
-        //    {
-        //        // Set falling animation
-        //        animator.Play("Player_Fall");
-        //    }
-        //}
+        //animator.SetFloat("speed", Math.Abs(moveInput));
+        //animator.SetBool("isGrounded", isGrounded);
+        //animator.SetFloat("yVelocity", rbPlayer.linearVelocity.y);
+        if (isGrounded)
+        {
+            if (moveInput == 0)
+            {
+                // Set idle animation
+                animator.Play("Player_Idle");
+            }
+            else
+            {
+                // Set running animation
+                animator.Play("Player_Run");
+            }
+        }
+        else
+        {
+            if (rbPlayer.linearVelocityY > 0)
+            {
+                // Set jumping animation
+                animator.Play("Player_Jump");
+            }
+            else
+            {
+                // Set falling animation
+                animator.Play("Player_Fall");
+            }
+        }
 
     }
 

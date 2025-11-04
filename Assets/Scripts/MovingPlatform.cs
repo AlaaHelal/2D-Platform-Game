@@ -55,12 +55,13 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            //gameObject.SetActive(true);
             //StartCoroutine(DetachPlayer(collision.transform));
             collision.gameObject.transform.SetParent(null);
         }
     }
     IEnumerator DetachPlayer(Transform collision) {
-        yield return null;
+        yield return new WaitForSeconds(0.05f);
         //Detach the player from the platform
         collision.gameObject.transform.SetParent(null);
 
