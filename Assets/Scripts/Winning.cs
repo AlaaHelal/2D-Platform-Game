@@ -9,7 +9,7 @@ public class Winning : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             winWindow.gameObject.SetActive(true);
-            UnityEngine.Time.timeScale = 0f; // Pause the game
+            Time.timeScale = 0f; // Pause the game
         }
     }
 }
