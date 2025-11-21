@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - MovingPlatform
   - Flag
+  - Coin
+  - coinText
   layers:
   - Default
   - TransparentFX

@@ -12,8 +12,9 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     public int extraJumpsCount =1;
     private int extraJumpsLeft;
-    public int coinsCollected =0;
-
+    
+    
+    private GameManager gameManager;
     private SpriteRenderer spriteRenderer;
     public Transform groundCheck;
     public LayerMask groundLayer;
@@ -21,12 +22,18 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     public Image healthBar;
     private Vector2 platformVelocity;
+    private AudioSource audioSource;
+    public AudioClip jumpClip;
+    public AudioClip damageClip;
+    
 
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         // Initialize extra jumps
         extraJumpsLeft = extraJumpsCount;
@@ -43,6 +50,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             extraJumpsLeft = extraJumpsCount;
+            
         }
 
         //Double Jump Logic
@@ -51,12 +59,15 @@ public class PlayerController : MonoBehaviour
             if (isGrounded )
             {
                 // Apply jump force
-                rbPlayer.linearVelocity = new Vector2(rbPlayer.linearVelocity.x, jumpForce); 
+                rbPlayer.linearVelocity = new Vector2(rbPlayer.linearVelocity.x, jumpForce);
+                PlaySound(jumpClip);
+
             }
             else if (extraJumpsLeft > 0)
             {
                 // Apply jump force for double jump
                 rbPlayer.linearVelocity = new Vector2(rbPlayer.linearVelocity.x, jumpForce);
+                PlaySound(jumpClip);
 
                 // Decrease extra jumps left if not grounded
                 extraJumpsLeft--;
@@ -70,8 +81,12 @@ public class PlayerController : MonoBehaviour
         // Update health bar
         healthBar.fillAmount = health / 100f;
 
-        
-       
+        //Pause the game
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameManager.PauseGame();
+        }
+
     }
 
     // Ground check in FixedUpdate for consistent physics checks
@@ -130,6 +145,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag=="Damage")
         {
+            PlaySound(damageClip);
             // Reduce health and apply knockback
             health -= 25;
             rbPlayer.linearVelocity = new Vector2(rbPlayer.linearVelocity.x, jumpForce);
@@ -196,4 +212,12 @@ public class PlayerController : MonoBehaviour
         // Reload the current scene on death
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
+    }
+
+
 }

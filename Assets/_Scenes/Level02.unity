@@ -152,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1177872173864932923, guid: 2a0c2b6c4306f17469e8b65dd01f33b4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1177872173864932923, guid: 2a0c2b6c4306f17469e8b65dd01f33b4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 331784076}
     - target: {fileID: 1177872173864932923, guid: 2a0c2b6c4306f17469e8b65dd01f33b4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FirstLevel
+      value: NextLevel
       objectReference: {fileID: 0}
     - target: {fileID: 1177872173864932923, guid: 2a0c2b6c4306f17469e8b65dd01f33b4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -168,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1177872173864932923, guid: 2a0c2b6c4306f17469e8b65dd01f33b4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: 
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 1177872173864932923, guid: 2a0c2b6c4306f17469e8b65dd01f33b4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -500,7 +500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8296283487848123144, guid: 2a0c2b6c4306f17469e8b65dd01f33b4, type: 3}
       propertyPath: m_Name
-      value: Restart Button
+      value: Next Level Button
       objectReference: {fileID: 0}
     - target: {fileID: 8512631946549841509, guid: 2a0c2b6c4306f17469e8b65dd01f33b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -512,10 +512,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8773511690227491937, guid: 2a0c2b6c4306f17469e8b65dd01f33b4, type: 3}
       propertyPath: m_text
-      value: Restart
+      value: Main Menu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3328580150661593759, guid: 2a0c2b6c4306f17469e8b65dd01f33b4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a0c2b6c4306f17469e8b65dd01f33b4, type: 3}
