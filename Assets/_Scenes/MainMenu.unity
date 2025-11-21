@@ -254,7 +254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'GO SHIRO
+  m_text: 'RunSHIRO!
 
     (2D Platform Game)'
   m_isRightToLeft: 0
