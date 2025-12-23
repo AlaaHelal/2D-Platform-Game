@@ -35,6 +35,8 @@ This project highlights hands-on experience in building a 2D game from scratch, 
 - Modular and reusable **C# scripts**
 - Organized project structure following Unity best practices
 - Interactive 2D environments
+- Score system and UI elements
+- Sound effects and background music
 
 ---
 
@@ -43,30 +45,6 @@ The player navigates through a 2D platforming level by moving and jumping across
 The game emphasizes smooth controls, physics accuracy, and foundational platformer mechanics.
 
 ---
-
-
-📂 Project Structure
-
-Assets/
- ├── Scripts/        # Player movement & game logic
- ├── Scenes/         # Game levels
- ├── Prefabs/        # Reusable game objects
- └── Sprites/        # Visual assets
-The project follows a clean and scalable structure to support future expansion.
-
-▶️ How to Run the Project
-Clone the repository:
-
-bash
-Copy code
-git clone https://github.com/AlaaHelal/2D-Platform-Game.git
-Open Unity Hub
-
-Select Unity 6
-
-Open the main scene
-
-Click Play ▶️
 
 🚀 What I Learned
 Implementing real-time player mechanics in Unity
@@ -81,18 +59,12 @@ Translating game design concepts into functional gameplay
 
 🔮 Planned Improvements
 Enemy AI and combat mechanics
-
-Score system and UI elements
-
-Sound effects and background music
-
 Additional levels with increasing difficulty
-
 Save/load system
 
 👩‍💻 Developer
 Alaa Allah Helal
-Computer Science Graduate
+Computer Science Teaching Assistant
 Unity & C# Developer
 
 🔗 GitHub: https://github.com/AlaaHelal
