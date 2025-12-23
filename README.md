@@ -6,7 +6,7 @@ This project was created to demonstrate practical skills in **game programming, 
 
 ---
 
-## 📌 Project Summary (For Recruiters)
+## 📌 Project Summary 
 
 - **Genre:** 2D Platformer  
 - **Engine:** Unity (Unity 6)  
